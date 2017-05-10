@@ -1,0 +1,52 @@
+from random import randint
+mark = 1
+while mark != 0:
+
+    print('----------游戏菜单---------\n')
+    print('请选择：\n')
+    print('1:游戏开始          2:退出菜单')
+    check = int(input('请输入你的选择：\n'))
+    avg_time = 0
+    turn = 0
+    time = 0
+    lost = 0
+    win = 0
+
+    if check ==1 :
+        print('游戏开始！\n')
+
+        answer = int(randint(1,100))
+        while turn >= 0:
+            response = int(input('你猜的数字是：\n'))
+            if response == answer:
+                print('恭喜你！猜对了！')
+                time += 1
+                turn += 1
+                if time > 10:
+                    print('很抱歉，客官您输了~')
+                    lost += 1
+                elif time <= 10:
+                    print('客官猴赛雷，您获胜了！')
+                    win += 1
+                    #print('答题次数为%d' % time)
+                    #print('客官一共玩了%d轮' % turn)
+                    #print('客官赢了%d次！' % win)
+                break
+            elif response > answer:
+                print('猜大了！')
+                time += 1
+            elif response < answer:
+                print('猜小了！')
+                time += 1
+
+    elif check == 2:
+        #print('答题次数为%d' % time)
+        #print('客官一共玩了%d轮' % turn)
+        #print('客官赢了%d次！' % win)
+        #avg_time = time/turn
+        #print('客官平均%d次就能猜中呦，再接再厉~' % avg_time)
+        print('欢迎下次再来~')
+        break
+    print('答题次数为%d' % time)
+    print('客官玩了%d轮' % turn)
+    print('客官赢了%d次！' % win)
